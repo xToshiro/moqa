@@ -23,6 +23,14 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Estilo para o botão de idioma ativo */
+        .lang-btn.active {
+            color: #10b981; /* emerald-500 */
+            font-weight: 700;
+        }
+        .dark .lang-btn.active {
+            color: #6ee7b7; /* emerald-300 */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
@@ -37,22 +45,36 @@
                  <!-- Espaço para a logo do MoQA -->
                 <img src="https://placehold.co/100x40/10b981/ffffff?text=MoQA" alt="Logo MoQA" class="h-8 w-auto">
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Início</a>
-                <a href="#produtos" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Produtos</a>
-                <a href="#opcionais" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Opcionais</a>
-                <a href="#contato" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Contato</a>
-            </nav>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_home">Início</a>
+                    <a href="#produtos" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_products">Produtos</a>
+                    <a href="#opcionais" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_options">Opcionais</a>
+                    <a href="#contato" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_contact">Contato</a>
+                </nav>
+                <!-- Seletor de Idioma -->
+                <div class="hidden md:flex items-center space-x-2 border-l border-gray-200 dark:border-gray-700 pl-6">
+                    <button id="lang-pt" class="lang-btn text-sm font-semibold text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors">PT</button>
+                    <span class="text-gray-300 dark:text-gray-600">|</span>
+                    <button id="lang-en" class="lang-btn text-sm font-semibold text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors">EN</button>
+                </div>
+            </div>
             <button class="md:hidden text-gray-600 dark:text-gray-300" id="mobile-menu-button">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
-             <a href="#inicio" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400">Início</a>
-             <a href="#produtos" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400">Produtos</a>
-             <a href="#opcionais" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400">Opcionais</a>
-             <a href="#contato" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400">Contato</a>
+             <a href="#inicio" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_home_mobile">Início</a>
+             <a href="#produtos" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_products_mobile">Produtos</a>
+             <a href="#opcionais" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_options_mobile">Opcionais</a>
+             <a href="#contato" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_contact_mobile">Contato</a>
+             <!-- Seletor de Idioma Mobile -->
+             <div class="flex items-center space-x-2 border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+                <button id="lang-pt-mobile" class="lang-btn text-sm font-semibold text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors">PT</button>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <button id="lang-en-mobile" class="lang-btn text-sm font-semibold text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors">EN</button>
+            </div>
         </div>
     </header>
 
@@ -61,12 +83,11 @@
         <section id="inicio" class="flex items-center bg-emerald-50 pt-32 pb-16 md:h-[90vh] md:py-20 dark:bg-gray-800">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl font-bold text-emerald-800 leading-tight mb-4 dark:text-emerald-300">MoQA: A tecnologia que monitora o ar que você respira.</h1>
-                    <p class="text-lg text-gray-600 mb-8 dark:text-gray-400">Soluções precisas e acessíveis para monitoramento da qualidade do ar, desenvolvidas pelo laboratório TRAMA da Universidade Federal do Ceará.</p>
-                    <a href="#produtos" class="bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-emerald-700 transition-transform transform hover:scale-105 shadow-lg">Conheça as versões</a>
+                    <h1 class="text-4xl md:text-5xl font-bold text-emerald-800 leading-tight mb-4 dark:text-emerald-300" data-translate="hero_title">MoQA: A tecnologia que monitora o ar que você respira.</h1>
+                    <p class="text-lg text-gray-600 mb-8 dark:text-gray-400" data-translate="hero_subtitle">Soluções precisas e acessíveis para monitoramento da qualidade do ar, desenvolvidas pelo laboratório TRAMA da Universidade Federal do Ceará.</p>
+                    <a href="#produtos" class="bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-emerald-700 transition-transform transform hover:scale-105 shadow-lg" data-translate="hero_button">Conheça as versões</a>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <!-- Imagem principal do produto -->
                     <img src="https://placehold.co/500x400/ffffff/10b981?text=MoQA" alt="Imagem principal do produto MoQA" class="rounded-lg shadow-2xl h-auto w-full max-w-xs sm:max-w-sm md:max-w-full max-h-[40vh] md:max-h-none object-contain">
                 </div>
             </div>
@@ -76,8 +97,8 @@
         <section id="produtos" class="py-20 bg-white dark:bg-gray-900">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Nossas Soluções de Monitoramento</h2>
-                    <p class="text-gray-600 mt-2 dark:text-gray-400">Três versões para atender a diferentes necessidades, da mais compacta à mais completa.</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white" data-translate="products_title">Nossas Soluções de Monitoramento</h2>
+                    <p class="text-gray-600 mt-2 dark:text-gray-400" data-translate="products_subtitle">Três versões para atender a diferentes necessidades, da mais compacta à mais completa.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,16 +107,16 @@
                     <div class="bg-gray-50 rounded-xl shadow-lg p-8 flex flex-col hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 fade-in-section dark:bg-gray-800">
                         <img src="https://placehold.co/400x300/e0f2f1/047857?text=MoQA+Nano" alt="MoQA Nano" class="rounded-lg mb-6 h-48 w-full object-cover">
                         <h3 class="text-2xl font-bold text-emerald-700 mb-2 dark:text-emerald-400">MoQA Nano</h3>
-                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400">O ponto de partida ideal. Compacto, eficiente e perfeito para monitoramento essencial em tempo real.</p>
+                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400" data-translate="nano_desc">O ponto de partida ideal. Compacto, eficiente e perfeito para monitoramento essencial em tempo real.</p>
                         <ul class="space-y-2 text-gray-700 mb-6 dark:text-gray-300">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Cache interno para até 3 dias</li>
+                            <li class="flex items-center" data-translate="nano_f1"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)</li>
+                            <li class="flex items-center" data-translate="nano_f2"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs</li>
+                            <li class="flex items-center" data-translate="nano_f3"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade</li>
+                            <li class="flex items-center" data-translate="nano_f4"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh</li>
+                            <li class="flex items-center" data-translate="nano_f5"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Cache interno para até 3 dias</li>
                         </ul>
                         <div class="mt-auto pt-4">
-                            <a href="#contato" class="w-full block text-center bg-emerald-600 text-white font-semibold py-3 rounded-lg hover:bg-emerald-700 transition-colors">Solicitar Cotação</a>
+                            <a href="#contato" class="w-full block text-center bg-emerald-600 text-white font-semibold py-3 rounded-lg hover:bg-emerald-700 transition-colors" data-translate="quote_button">Solicitar Cotação</a>
                         </div>
                     </div>
 
@@ -103,17 +124,17 @@
                     <div class="bg-emerald-600 text-white rounded-xl shadow-lg p-8 flex flex-col ring-4 ring-emerald-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 fade-in-section dark:ring-emerald-500" style="transition-delay: 200ms;">
                         <img src="https://placehold.co/400x300/a7f3d0/065f46?text=MoQA+Mini" alt="MoQA Mini" class="rounded-lg mb-6 h-48 w-full object-cover">
                         <h3 class="text-2xl font-bold mb-2">MoQA Mini</h3>
-                        <p class="text-emerald-100 mb-4 flex-grow">Mais dados, mais autonomia. A solução intermediária com sensor de CO2 e armazenamento expandido.</p>
+                        <p class="text-emerald-100 mb-4 flex-grow" data-translate="mini_desc">Mais dados, mais autonomia. A solução intermediária com sensor de CO2 e armazenamento expandido.</p>
                         <ul class="space-y-2 text-emerald-50 mb-6">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh</li>
+                            <li class="flex items-center" data-translate="mini_f1"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)</li>
+                            <li class="flex items-center" data-translate="mini_f2"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs</li>
+                            <li class="flex items-center" data-translate="mini_f3"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade</li>
+                            <li class="flex items-center" data-translate="mini_f4"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2</li>
+                            <li class="flex items-center" data-translate="mini_f5"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb</li>
+                            <li class="flex items-center" data-translate="mini_f6"><svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh</li>
                         </ul>
                         <div class="mt-auto pt-4">
-                            <a href="#contato" class="w-full block text-center bg-white text-emerald-600 font-semibold py-3 rounded-lg hover:bg-emerald-50 transition-colors dark:bg-gray-200 dark:text-emerald-700 dark:hover:bg-gray-300">Solicitar Cotação</a>
+                            <a href="#contato" class="w-full block text-center bg-white text-emerald-600 font-semibold py-3 rounded-lg hover:bg-emerald-50 transition-colors dark:bg-gray-200 dark:text-emerald-700 dark:hover:bg-gray-300" data-translate="quote_button2">Solicitar Cotação</a>
                         </div>
                     </div>
 
@@ -121,16 +142,16 @@
                     <div class="bg-gray-50 rounded-xl shadow-lg p-8 flex flex-col hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 fade-in-section dark:bg-gray-800" style="transition-delay: 400ms;">
                         <img src="https://placehold.co/400x300/d1fae5/064e3b?text=MoQA+Plus" alt="MoQA Plus" class="rounded-lg mb-6 h-48 w-full object-cover">
                         <h3 class="text-2xl font-bold text-emerald-700 mb-2 dark:text-emerald-400">MoQA Plus</h3>
-                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400">A solução definitiva com sensores de gases adicionais e autonomia energética integrada para os projetos mais exigentes.</p>
+                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400" data-translate="plus_desc">A solução definitiva com sensores de gases adicionais e autonomia energética integrada para os projetos mais exigentes.</p>
                         <ul class="space-y-2 text-gray-700 mb-6 dark:text-gray-300">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Partículas, TVOCs, Temp., Pressão e Umidade</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Gases (CO, Álcool, NO2, NH3)</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>UPS + Bateria 10.000mAh integrada</li>
+                            <li class="flex items-center" data-translate="plus_f1"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Partículas, TVOCs, Temp., Pressão e Umidade</li>
+                            <li class="flex items-center" data-translate="plus_f2"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2</li>
+                            <li class="flex items-center" data-translate="plus_f3"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Gases (CO, Álcool, NO2, NH3)</li>
+                            <li class="flex items-center" data-translate="plus_f4"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb</li>
+                            <li class="flex items-center" data-translate="plus_f5"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>UPS + Bateria 10.000mAh integrada</li>
                         </ul>
                         <div class="mt-auto pt-4">
-                            <a href="#contato" class="w-full block text-center bg-emerald-600 text-white font-semibold py-3 rounded-lg hover:bg-emerald-700 transition-colors">Solicitar Cotação</a>
+                            <a href="#contato" class="w-full block text-center bg-emerald-600 text-white font-semibold py-3 rounded-lg hover:bg-emerald-700 transition-colors" data-translate="quote_button3">Solicitar Cotação</a>
                         </div>
                     </div>
                 </div>
@@ -141,42 +162,39 @@
         <section id="opcionais" class="py-20 bg-gray-100 dark:bg-black/50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Personalize seu MoQA</h2>
-                    <p class="text-gray-600 mt-2 dark:text-gray-400">Adapte o equipamento com opcionais de energia, conectividade e gestão de dados.</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white" data-translate="options_title">Personalize seu MoQA</h2>
+                    <p class="text-gray-600 mt-2 dark:text-gray-400" data-translate="options_subtitle">Adapte o equipamento com opcionais de energia, conectividade e gestão de dados.</p>
                 </div>
                 <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Opcionais de Hardware -->
                     <div class="bg-white p-6 rounded-lg shadow-md fade-in-section dark:bg-gray-800">
-                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400">Opcionais de Energia</h3>
+                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400" data-translate="options_energy_title">Opcionais de Energia</h3>
                         <ul class="space-y-3 dark:text-gray-300">
-                            <li><strong>UPS + Bateria 10.000mAh:</strong> Garanta operação contínua mesmo com falhas de energia. <span class="block text-sm text-gray-500 dark:text-gray-400">(Disponível para Nano e Mini)</span></li>
-                            <li><strong>Painel Solar:</strong> Autonomia energética completa para instalações em locais remotos. <span class="block text-sm text-gray-500 dark:text-gray-400">(Disponível para todas as versões)</span></li>
+                            <li data-translate="options_energy_f1"><strong>UPS + Bateria 10.000mAh:</strong> Garanta operação contínua mesmo com falhas de energia. <span class="block text-sm text-gray-500 dark:text-gray-400">(Disponível para Nano e Mini)</span></li>
+                            <li data-translate="options_energy_f2"><strong>Painel Solar:</strong> Autonomia energética completa para instalações em locais remotos. <span class="block text-sm text-gray-500 dark:text-gray-400">(Disponível para todas as versões)</span></li>
                         </ul>
                     </div>
-                    <!-- Conectividade -->
                     <div class="bg-white p-6 rounded-lg shadow-md fade-in-section dark:bg-gray-800" style="transition-delay: 200ms;">
-                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400">Conectividade Avançada</h3>
-                        <p class="mb-3 dark:text-gray-300">Todos os modelos contam com Wi-Fi 5 e Bluetooth 4.0. Para necessidades específicas, oferecemos:</p>
+                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400" data-translate="options_connectivity_title">Conectividade Avançada</h3>
+                        <p class="mb-3 dark:text-gray-300" data-translate="options_connectivity_desc">Todos os modelos contam com Wi-Fi 5 e Bluetooth 4.0. Para necessidades específicas, oferecemos:</p>
                         <ul class="space-y-3 dark:text-gray-300">
-                            <li><strong>LoRaWAN:</strong> Ideal para longas distâncias e baixo consumo de energia.</li>
-                            <li><strong>4G/LTE:</strong> Conectividade celular para alta disponibilidade de dados em qualquer lugar.</li>
+                            <li data-translate="options_connectivity_f1"><strong>LoRaWAN:</strong> Ideal para longas distâncias e baixo consumo de energia.</li>
+                            <li data-translate="options_connectivity_f2"><strong>4G/LTE:</strong> Conectividade celular para alta disponibilidade de dados em qualquer lugar.</li>
                         </ul>
-                        <p class="text-sm text-gray-500 mt-3 dark:text-gray-400">*A disponibilidade dos módulos LoRa e 4G pode variar por região. Consulte-nos.</p>
+                        <p class="text-sm text-gray-500 mt-3 dark:text-gray-400" data-translate="options_connectivity_note">*A disponibilidade dos módulos LoRa e 4G pode variar por região. Consulte-nos.</p>
                     </div>
                 </div>
-                 <!-- Gestão de Dados -->
                  <div class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-lg shadow-md fade-in-section dark:bg-gray-800" style="transition-delay: 400ms;">
-                    <h3 class="font-bold text-xl mb-4 text-center text-emerald-700 dark:text-emerald-400">Plataforma de Dados e Gestão</h3>
+                    <h3 class="font-bold text-xl mb-4 text-center text-emerald-700 dark:text-emerald-400" data-translate="options_data_title">Plataforma de Dados e Gestão</h3>
                     <div class="flex flex-col md:flex-row justify-around text-center">
                         <div class="p-4">
-                            <h4 class="font-semibold text-lg dark:text-gray-200">Plataforma de Dados RepoAir</h4>
-                            <p class="text-gray-600 mb-4 dark:text-gray-400">Acesse seus dados em nossa plataforma online, com dashboards, alertas e relatórios. Sem se preocupar com infraestrutura.</p>
-                            <a href="https://repoair-moqa-network.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline inline-block bg-emerald-50 px-4 py-2 rounded-lg transition-colors hover:bg-emerald-100 dark:bg-emerald-900/50 dark:text-emerald-400 dark:hover:bg-emerald-900/80">Acessar RepoAir &rarr;</a>
+                            <h4 class="font-semibold text-lg dark:text-gray-200" data-translate="options_data_cloud_title">Plataforma de Dados RepoAir</h4>
+                            <p class="text-gray-600 mb-4 dark:text-gray-400" data-translate="options_data_cloud_desc">Acesse seus dados em nossa plataforma online, com dashboards, alertas e relatórios. Sem se preocupar com infraestrutura.</p>
+                            <a href="https://repoair-moqa-network.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline inline-block bg-emerald-50 px-4 py-2 rounded-lg transition-colors hover:bg-emerald-100 dark:bg-emerald-900/50 dark:text-emerald-400 dark:hover:bg-emerald-900/80" data-translate="options_data_cloud_button">Acessar RepoAir &rarr;</a>
                         </div>
                         <div class="border-t md:border-t-0 md:border-l my-4 md:my-0 dark:border-gray-700"></div>
                         <div class="p-4">
-                            <h4 class="font-semibold text-lg dark:text-gray-200">Licença Self-Hosted</h4>
-                            <p class="text-gray-600 dark:text-gray-400">Obtenha uma licença do nosso software para hospedar em seus próprios servidores, garantindo controle total sobre os dados.</p>
+                            <h4 class="font-semibold text-lg dark:text-gray-200" data-translate="options_data_license_title">Licença Self-Hosted</h4>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="options_data_license_desc">Obtenha uma licença do nosso software para hospedar em seus próprios servidores, garantindo controle total sobre os dados.</p>
                         </div>
                     </div>
                 </div>
@@ -190,23 +208,23 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
                     <h3 class="font-bold text-lg mb-2">MoQA</h3>
-                    <p class="text-gray-400">Uma iniciativa do Laboratório de Transportes e Meio Ambiente (TRAMA) da Universidade Federal do Ceará.</p>
+                    <p class="text-gray-400" data-translate="footer_desc">Uma iniciativa do Laboratório de Transportes e Meio Ambiente (TRAMA) da Universidade Federal do Ceará.</p>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg mb-2">Links Rápidos</h3>
+                    <h3 class="font-bold text-lg mb-2" data-translate="footer_links">Links Rápidos</h3>
                     <ul>
-                        <li><a href="#inicio" class="text-gray-400 hover:text-white">Início</a></li>
-                        <li><a href="#produtos" class="text-gray-400 hover:text-white">Produtos</a></li>
-                        <li><a href="#opcionais" class="text-gray-400 hover:text-white">Opcionais</a></li>
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white" data-translate="footer_link_home">Início</a></li>
+                        <li><a href="#produtos" class="text-gray-400 hover:text-white" data-translate="footer_link_products">Produtos</a></li>
+                        <li><a href="#opcionais" class="text-gray-400 hover:text-white" data-translate="footer_link_options">Opcionais</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg mb-2">Contato</h3>
+                    <h3 class="font-bold text-lg mb-2" data-translate="footer_contact">Contato</h3>
                     <p class="text-gray-400">Campus do Pici, Bloco 703<br>Fortaleza, CE, Brasil<br>Email: tramalabs@gmail.com</p>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 Laboratório TRAMA - UFC. Todos os direitos reservados.</p>
+                <p data-translate="footer_copy">&copy; 2024 Laboratório TRAMA - UFC. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -219,18 +237,169 @@
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Script de tradução
+        const translations = {
+            pt: {
+                nav_home: "Início",
+                nav_products: "Produtos",
+                nav_options: "Opcionais",
+                nav_contact: "Contato",
+                nav_home_mobile: "Início",
+                nav_products_mobile: "Produtos",
+                nav_options_mobile: "Opcionais",
+                nav_contact_mobile: "Contato",
+                hero_title: "MoQA: A tecnologia que monitora o ar que você respira.",
+                hero_subtitle: "Soluções precisas e acessíveis para monitoramento da qualidade do ar, desenvolvidas pelo laboratório TRAMA da Universidade Federal do Ceará.",
+                hero_button: "Conheça as versões",
+                products_title: "Nossas Soluções de Monitoramento",
+                products_subtitle: "Três versões para atender a diferentes necessidades, da mais compacta à mais completa.",
+                nano_desc: "O ponto de partida ideal. Compacto, eficiente e perfeito para monitoramento essencial em tempo real.",
+                nano_f1: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)',
+                nano_f2: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs',
+                nano_f3: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade',
+                nano_f4: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh',
+                nano_f5: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Cache interno para até 3 dias',
+                quote_button: "Solicitar Cotação",
+                mini_desc: "Mais dados, mais autonomia. A solução intermediária com sensor de CO2 e armazenamento expandido.",
+                mini_f1: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de Partículas (PM 2.5 e PM 10)',
+                mini_f2: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de TVOCs',
+                mini_f3: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperatura, Pressão e Umidade',
+                mini_f4: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2',
+                mini_f5: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb',
+                mini_f6: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Bateria de 2600mAh',
+                quote_button2: "Solicitar Cotação",
+                plus_desc: "A solução definitiva com sensores de gases adicionais e autonomia energética integrada para os projetos mais exigentes.",
+                plus_f1: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Partículas, TVOCs, Temp., Pressão e Umidade',
+                plus_f2: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensor de CO2',
+                plus_f3: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Sensores de Gases (CO, Álcool, NO2, NH3)',
+                plus_f4: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card para até 32Gb',
+                plus_f5: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>UPS + Bateria 10.000mAh integrada',
+                quote_button3: "Solicitar Cotação",
+                options_title: "Personalize seu MoQA",
+                options_subtitle: "Adapte o equipamento com opcionais de energia, conectividade e gestão de dados.",
+                options_energy_title: "Opcionais de Energia",
+                options_energy_f1: "<strong>UPS + Bateria 10.000mAh:</strong> Garanta operação contínua mesmo com falhas de energia. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para Nano e Mini)</span>",
+                options_energy_f2: "<strong>Painel Solar:</strong> Autonomia energética completa para instalações em locais remotos. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para todas as versões)</span>",
+                options_connectivity_title: "Conectividade Avançada",
+                options_connectivity_desc: "Todos os modelos contam com Wi-Fi 5 e Bluetooth 4.0. Para necessidades específicas, oferecemos:",
+                options_connectivity_f1: "<strong>LoRaWAN:</strong> Ideal para longas distâncias e baixo consumo de energia.",
+                options_connectivity_f2: "<strong>4G/LTE:</strong> Conectividade celular para alta disponibilidade de dados em qualquer lugar.",
+                options_connectivity_note: "*A disponibilidade dos módulos LoRa e 4G pode variar por região. Consulte-nos.",
+                options_data_title: "Plataforma de Dados e Gestão",
+                options_data_cloud_title: "Plataforma de Dados RepoAir",
+                options_data_cloud_desc: "Acesse seus dados em nossa plataforma online, com dashboards, alertas e relatórios. Sem se preocupar com infraestrutura.",
+                options_data_cloud_button: "Acessar RepoAir &rarr;",
+                options_data_license_title: "Licença Self-Hosted",
+                options_data_license_desc: "Obtenha uma licença do nosso software para hospedar em seus próprios servidores, garantindo controle total sobre os dados.",
+                footer_desc: "Uma iniciativa do Laboratório de Transportes e Meio Ambiente (TRAMA) da Universidade Federal do Ceará.",
+                footer_links: "Links Rápidos",
+                footer_link_home: "Início",
+                footer_link_products: "Produtos",
+                footer_link_options: "Opcionais",
+                footer_contact: "Contato",
+                footer_copy: "&copy; 2024 Laboratório TRAMA - UFC. Todos os direitos reservados."
+            },
+            en: {
+                nav_home: "Home",
+                nav_products: "Products",
+                nav_options: "Options",
+                nav_contact: "Contact",
+                nav_home_mobile: "Home",
+                nav_products_mobile: "Products",
+                nav_options_mobile: "Options",
+                nav_contact_mobile: "Contact",
+                hero_title: "MoQA: The technology that monitors the air you breathe.",
+                hero_subtitle: "Accurate and accessible solutions for air quality monitoring, developed by the TRAMA laboratory at the Federal University of Ceará.",
+                hero_button: "Discover the versions",
+                products_title: "Our Monitoring Solutions",
+                products_subtitle: "Three versions to meet different needs, from the most compact to the most complete.",
+                nano_desc: "The ideal starting point. Compact, efficient, and perfect for essential real-time monitoring.",
+                nano_f1: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Particulate Matter Sensor (PM 2.5 & PM 10)',
+                nano_f2: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>TVOCs Sensor',
+                nano_f3: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperature, Pressure, and Humidity',
+                nano_f4: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>2600mAh Battery',
+                nano_f5: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Internal cache for up to 3 days',
+                quote_button: "Request a Quote",
+                mini_desc: "More data, more autonomy. The intermediate solution with a CO2 sensor and expanded storage.",
+                mini_f1: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Particulate Matter Sensor (PM 2.5 & PM 10)',
+                mini_f2: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>TVOCs Sensor',
+                mini_f3: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Temperature, Pressure, and Humidity',
+                mini_f4: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>CO2 Sensor',
+                mini_f5: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card up to 32Gb',
+                mini_f6: '<svg class="w-5 h-5 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>2600mAh Battery',
+                quote_button2: "Request a Quote",
+                plus_desc: "The definitive solution with additional gas sensors and integrated energy autonomy for the most demanding projects.",
+                plus_f1: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Particulate, TVOCs, Temp., Pressure & Humidity Sensors',
+                plus_f2: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>CO2 Sensor',
+                plus_f3: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Gas Sensors (CO, Alcohol, NO2, NH3)',
+                plus_f4: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>SD Card up to 32Gb',
+                plus_f5: '<svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Integrated UPS + 10,000mAh Battery',
+                quote_button3: "Request a Quote",
+                options_title: "Customize your MoQA",
+                options_subtitle: "Adapt the equipment with energy, connectivity, and data management options.",
+                options_energy_title: "Energy Options",
+                options_energy_f1: "<strong>UPS + 10,000mAh Battery:</strong> Ensure continuous operation even with power outages. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Available for Nano and Mini)</span>",
+                options_energy_f2: "<strong>Solar Panel:</strong> Complete energy autonomy for installations in remote locations. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Available for all versions)</span>",
+                options_connectivity_title: "Advanced Connectivity",
+                options_connectivity_desc: "All models come with Wi-Fi 5 and Bluetooth 4.0. For specific needs, we offer:",
+                options_connectivity_f1: "<strong>LoRaWAN:</strong> Ideal for long distances and low power consumption.",
+                options_connectivity_f2: "<strong>4G/LTE:</strong> Cellular connectivity for high data availability anywhere.",
+                options_connectivity_note: "*Availability of LoRa and 4G modules may vary by region. Contact us.",
+                options_data_title: "Data and Management Platform",
+                options_data_cloud_title: "RepoAir Data Platform",
+                options_data_cloud_desc: "Access your data on our online platform, with dashboards, alerts, and reports. No need to worry about infrastructure.",
+                options_data_cloud_button: "Access RepoAir &rarr;",
+                options_data_license_title: "Self-Hosted License",
+                options_data_license_desc: "Get a license for our software to host on your own servers, ensuring full control over the data.",
+                footer_desc: "An initiative of the Transport and Environment Laboratory (TRAMA) at the Federal University of Ceará.",
+                footer_links: "Quick Links",
+                footer_link_home: "Home",
+                footer_link_products: "Products",
+                footer_link_options: "Options",
+                footer_contact: "Contact",
+                footer_copy: "&copy; 2024 TRAMA Laboratory - UFC. All rights reserved."
+            }
+        };
+
+        const setLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Atualiza botões ativos
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            document.getElementById(`lang-${lang}-mobile`).classList.add('active');
+        };
+
+        // Event Listeners para botões de idioma
+        document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-pt-mobile').addEventListener('click', () => setLanguage('pt'));
+        document.getElementById('lang-en-mobile').addEventListener('click', () => setLanguage('en'));
+
+        // Define o idioma inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('pt');
+        });
+
         // Script para a animação de surgimento gradual
         const sections = document.querySelectorAll('.fade-in-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Opcional: parar de observar depois que a animação acontece
                     // observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1 // A animação começa quando 10% do elemento está visível
+            threshold: 0.1
         });
 
         sections.forEach(section => {
