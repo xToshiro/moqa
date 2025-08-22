@@ -49,7 +49,7 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="#inicio" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_home">Início</a>
                     <a href="#produtos" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_products">Produtos</a>
-                    <a href="#opcionais" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_options">Opcionais</a>
+                    <a href="#estacao" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_station">Estação</a>
                     <a href="#contato" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_contact">Contato</a>
                 </nav>
                 <!-- Seletor de Idioma -->
@@ -67,7 +67,7 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
              <a href="#inicio" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_home_mobile">Início</a>
              <a href="#produtos" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_products_mobile">Produtos</a>
-             <a href="#opcionais" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_options_mobile">Opcionais</a>
+             <a href="#estacao" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_station_mobile">Estação</a>
              <a href="#contato" class="block py-2 text-gray-600 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400" data-translate="nav_contact_mobile">Contato</a>
              <!-- Seletor de Idioma Mobile -->
              <div class="flex items-center space-x-2 border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
@@ -108,7 +108,7 @@
                     <div class="bg-gray-50 rounded-xl shadow-lg p-8 flex flex-col hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 fade-in-section dark:bg-gray-800">
                         <img src="https://placehold.co/400x300/e0f2f1/047857?text=MoQA+Nano" alt="MoQA Nano" class="rounded-lg mb-6 h-48 w-full object-cover">
                         <h3 class="text-2xl font-bold text-emerald-700 mb-2 dark:text-emerald-400">MoQA Nano</h3>
-                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400" data-translate="nano_desc">O ponto de partida ideal. Compacto, eficiente e perfeito para monitoramento essencial em tempo real.</p>
+                        <p class="text-gray-600 mb-4 flex-grow dark:text-gray-400" data-translate="nano_desc">A ferramenta definitiva para monitoramento móvel. Mapeie a exposição a poluentes em qualquer trajeto e gere dados para saúde e segurança.</p>
                         <ul class="space-y-2 text-gray-700 mb-6 dark:text-gray-300">
                             <li class="flex items-start" data-translate="nano_f1"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Sensor de Partículas (PM 2.5 e PM 10)</span></li>
                             <li class="flex items-start" data-translate="nano_f2"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Sensor de TVOCs</span></li>
@@ -164,43 +164,46 @@
             </div>
         </section>
 
-        <!-- Seção de Opcionais e Conectividade -->
-        <section id="opcionais" class="py-20 bg-gray-100 dark:bg-black/50">
+        <!-- Seção Estação Meteorológica -->
+        <section id="estacao" class="py-20 bg-gray-100 dark:bg-black/50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white" data-translate="options_title">Personalize seu MoQA</h2>
-                    <p class="text-gray-600 mt-2 dark:text-gray-400" data-translate="options_subtitle">Adapte o equipamento com opcionais de energia, conectividade e gestão de dados.</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white" data-translate="station_title">Estação Meteorológica Smart</h2>
+                    <p class="text-gray-600 mt-2 dark:text-gray-400" data-translate="station_subtitle">Dados ambientais completos para uma análise 360°.</p>
                 </div>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-section dark:bg-gray-800">
-                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400" data-translate="options_energy_title">Opcionais de Energia</h3>
-                        <ul class="space-y-3 dark:text-gray-300">
-                            <li data-translate="options_energy_f1"><strong>UPS + Bateria 10.000mAh:</strong> Garanta operação contínua mesmo com falhas de energia. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para Nano e Mini)</span></li>
-                            <li data-translate="options_energy_f2"><strong>Painel Solar:</strong> Autonomia energética completa para instalações em locais remotos. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para todas as versões)</span></li>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8 fade-in-section dark:bg-gray-800">
+                    <img src="https://placehold.co/400x400/d1fae5/064e3b?text=Estação+Smart" alt="Estação Meteorológica Smart" class="rounded-lg w-full md:w-1/3 h-auto">
+                    <div class="flex-1">
+                        <p class="text-gray-700 dark:text-gray-300 mb-4" data-translate="station_desc">Potencialize sua análise de qualidade do ar com dados meteorológicos precisos e em tempo real. Nossa Estação Smart pode operar de forma independente ou integrada aos seus dispositivos MoQA, fornecendo um panorama completo das condições ambientais.</p>
+                        <ul class="grid grid-cols-2 gap-x-6 gap-y-2 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center" data-translate="station_f1"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>Velocidade do Vento</li>
+                            <li class="flex items-center" data-translate="station_f2"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>Direção do Vento</li>
+                            <li class="flex items-center" data-translate="station_f3"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>Pluviometria</li>
+                            <li class="flex items-center" data-translate="station_f4"><svg class="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>Luminosidade</li>
                         </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-section dark:bg-gray-800" style="transition-delay: 200ms;">
-                        <h3 class="font-bold text-xl mb-4 text-emerald-700 dark:text-emerald-400" data-translate="options_connectivity_title">Conectividade Avançada</h3>
-                        <p class="mb-3 dark:text-gray-300" data-translate="options_connectivity_desc">Todos os modelos contam com Wi-Fi 5 e Bluetooth 4.0. Para necessidades específicas, oferecemos:</p>
-                        <ul class="space-y-3 dark:text-gray-300">
-                            <li data-translate="options_connectivity_f1"><strong>LoRaWAN:</strong> Ideal para longas distâncias e baixo consumo de energia.</li>
-                            <li data-translate="options_connectivity_f2"><strong>4G/LTE:</strong> Conectividade celular para alta disponibilidade de dados em qualquer lugar.</li>
-                        </ul>
-                        <p class="text-sm text-gray-500 mt-3 dark:text-gray-400" data-translate="options_connectivity_note">*A disponibilidade dos módulos LoRa e 4G pode variar por região. Consulte-nos.</p>
+                        <div class="mt-6">
+                             <a href="#contato" class="w-full md:w-auto inline-block text-center bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-emerald-700 transition-colors" data-translate="quote_button4">Solicitar Cotação</a>
+                        </div>
                     </div>
                 </div>
-                 <div class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-lg shadow-md fade-in-section dark:bg-gray-800" style="transition-delay: 400ms;">
-                    <h3 class="font-bold text-xl mb-4 text-center text-emerald-700 dark:text-emerald-400" data-translate="options_data_title">Plataforma de Dados e Gestão</h3>
-                    <div class="flex flex-col md:flex-row justify-around text-center">
-                        <div class="p-4">
-                            <h4 class="font-semibold text-lg dark:text-gray-200" data-translate="options_data_cloud_title">Plataforma de Dados RepoAir</h4>
-                            <p class="text-gray-600 mb-4 dark:text-gray-400" data-translate="options_data_cloud_desc">Foque nos seus dados, nós cuidamos do resto. Nossa plataforma utiliza as melhores tecnologias de banco de dados, segurança e escalabilidade para garantir acesso 24h, sem que você precise gerenciar qualquer infraestrutura. Solicite o download dos seus dados a qualquer momento, sem custos adicionais.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Gestão de Dados -->
+        <section id="opcionais" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg fade-in-section dark:bg-gray-800">
+                    <h3 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white" data-translate="options_data_title">Plataforma de Dados e Gestão</h3>
+                    <div class="flex flex-col md:flex-row justify-around text-center gap-8">
+                        <div class="p-4 flex-1">
+                            <h4 class="font-semibold text-xl dark:text-emerald-400" data-translate="options_data_cloud_title">Plataforma de Dados RepoAir</h4>
+                            <p class="text-gray-600 mt-2 mb-4 dark:text-gray-400" data-translate="options_data_cloud_desc">Foque nos seus dados, nós cuidamos do resto. Nossa plataforma utiliza as melhores tecnologias de banco de dados, segurança e escalabilidade para garantir acesso 24h, sem que você precise gerenciar qualquer infraestrutura. Solicite o download dos seus dados a qualquer momento, sem custos adicionais.</p>
                             <a href="https://repoair-moqa-network.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline inline-block bg-emerald-50 px-4 py-2 rounded-lg transition-colors hover:bg-emerald-100 dark:bg-emerald-900/50 dark:text-emerald-400 dark:hover:bg-emerald-900/80" data-translate="options_data_cloud_button">Acessar RepoAir &rarr;</a>
                         </div>
                         <div class="border-t md:border-t-0 md:border-l my-4 md:my-0 dark:border-gray-700"></div>
-                        <div class="p-4">
-                            <h4 class="font-semibold text-lg dark:text-gray-200" data-translate="options_data_license_title">Licença Self-Hosted</h4>
-                            <p class="text-gray-600 dark:text-gray-400" data-translate="options_data_license_desc">Fuja das APIs caras e seja o dono dos seus dados. Com nossa licença Self-Hosted, você tem o controle total e a segurança da sua própria infraestrutura, contando com nosso suporte para a implementação.</p>
+                        <div class="p-4 flex-1">
+                            <h4 class="font-semibold text-xl dark:text-emerald-400" data-translate="options_data_license_title">Licença Self-Hosted</h4>
+                            <p class="text-gray-600 mt-2 dark:text-gray-400" data-translate="options_data_license_desc">Fuja das APIs caras e seja o dono dos seus dados. Com nossa licença Self-Hosted, você tem o controle total e a segurança da sua própria infraestrutura, contando com nosso suporte para a implementação.</p>
                         </div>
                     </div>
                 </div>
@@ -221,7 +224,7 @@
                     <ul>
                         <li><a href="#inicio" class="text-gray-400 hover:text-white" data-translate="footer_link_home">Início</a></li>
                         <li><a href="#produtos" class="text-gray-400 hover:text-white" data-translate="footer_link_products">Produtos</a></li>
-                        <li><a href="#opcionais" class="text-gray-400 hover:text-white" data-translate="footer_link_options">Opcionais</a></li>
+                        <li><a href="#estacao" class="text-gray-400 hover:text-white" data-translate="footer_link_station">Estação</a></li>
                     </ul>
                 </div>
                 <div>
@@ -248,18 +251,18 @@
             pt: {
                 nav_home: "Início",
                 nav_products: "Produtos",
-                nav_options: "Opcionais",
+                nav_station: "Estação",
                 nav_contact: "Contato",
                 nav_home_mobile: "Início",
                 nav_products_mobile: "Produtos",
-                nav_options_mobile: "Opcionais",
+                nav_station_mobile: "Estação",
                 nav_contact_mobile: "Contato",
                 hero_title: "MoQA: A tecnologia que monitora o ar que você respira.",
                 hero_subtitle: "Soluções precisas e acessíveis para monitoramento da qualidade do ar, desenvolvidas pelo laboratório TRAMA da Universidade Federal do Ceará.",
                 hero_button: "Conheça as versões",
                 products_title: "Nossas Soluções de Monitoramento",
                 products_subtitle: "Três versões para atender a diferentes necessidades, da mais compacta à mais completa.",
-                nano_desc: "Com GPS integrado, o MoQA Nano é a ferramenta definitiva para monitoramento móvel. Leve-o em bolsas ou veículos e mapeie sua exposição a poluentes em qualquer trajeto, gerando dados cruciais para a saúde e segurança.",
+                nano_desc: "A ferramenta definitiva para monitoramento móvel. Mapeie a exposição a poluentes em qualquer trajeto e gere dados para saúde e segurança.",
                 nano_f1: '<span>Sensor de Partículas (PM 2.5 e PM 10)</span>',
                 nano_f2: '<span>Sensor de TVOCs</span>',
                 nano_f3: '<span>Temperatura, Pressão e Umidade</span>',
@@ -283,19 +286,17 @@
                 plus_f5: '<span>SD Card de 32Gb (até 3 meses de dados)</span>',
                 plus_f6: '<span>UPS + Bateria 10.000mAh integrada</span>',
                 quote_button3: "Solicitar Cotação",
+                quote_button4: "Solicitar Cotação",
                 options_available: '<span>Opcionais disponíveis</span>',
                 options_available2: '<span>Opcionais disponíveis</span>',
                 options_available3: '<span>Opcionais disponíveis</span>',
-                options_title: "Personalize seu MoQA",
-                options_subtitle: "Adapte o equipamento com opcionais de energia, conectividade e gestão de dados.",
-                options_energy_title: "Opcionais de Energia",
-                options_energy_f1: "<strong>UPS + Bateria 10.000mAh:</strong> Garanta operação contínua mesmo com falhas de energia. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para Nano e Mini)</span>",
-                options_energy_f2: "<strong>Painel Solar:</strong> Autonomia energética completa para instalações em locais remotos. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Disponível para todas as versões)</span>",
-                options_connectivity_title: "Conectividade Avançada",
-                options_connectivity_desc: "Todos os modelos contam com Wi-Fi 5 e Bluetooth 4.0. Para necessidades específicas, oferecemos:",
-                options_connectivity_f1: "<strong>LoRaWAN:</strong> Ideal para longas distâncias e baixo consumo de energia.",
-                options_connectivity_f2: "<strong>4G/LTE:</strong> Conectividade celular para alta disponibilidade de dados em qualquer lugar.",
-                options_connectivity_note: "*A disponibilidade dos módulos LoRa e 4G pode variar por região. Consulte-nos.",
+                station_title: "Estação Meteorológica Smart",
+                station_subtitle: "Dados ambientais completos para uma análise 360°.",
+                station_desc: "Potencialize sua análise de qualidade do ar com dados meteorológicos precisos e em tempo real. Nossa Estação Smart pode operar de forma independente ou integrada aos seus dispositivos MoQA, fornecendo um panorama completo das condições ambientais.",
+                station_f1: "Velocidade do Vento",
+                station_f2: "Direção do Vento",
+                station_f3: "Pluviometria",
+                station_f4: "Luminosidade",
                 options_data_title: "Plataforma de Dados e Gestão",
                 options_data_cloud_title: "Plataforma de Dados RepoAir",
                 options_data_cloud_desc: "Foque nos seus dados, nós cuidamos do resto. Nossa plataforma utiliza as melhores tecnologias de banco de dados, segurança e escalabilidade para garantir acesso 24h, sem que você precise gerenciar qualquer infraestrutura. Solicite o download dos seus dados a qualquer momento, sem custos adicionais.",
@@ -306,25 +307,25 @@
                 footer_links: "Links Rápidos",
                 footer_link_home: "Início",
                 footer_link_products: "Produtos",
-                footer_link_options: "Opcionais",
+                footer_link_station: "Estação",
                 footer_contact: "Contato",
                 footer_copy: "&copy; 2024 Laboratório TRAMA - UFC. Todos os direitos reservados."
             },
             en: {
                 nav_home: "Home",
                 nav_products: "Products",
-                nav_options: "Options",
+                nav_station: "Station",
                 nav_contact: "Contact",
                 nav_home_mobile: "Home",
                 nav_products_mobile: "Products",
-                nav_options_mobile: "Options",
+                nav_station_mobile: "Station",
                 nav_contact_mobile: "Contact",
                 hero_title: "MoQA: The technology that monitors the air you breathe.",
                 hero_subtitle: "Accurate and accessible solutions for air quality monitoring, developed by the TRAMA laboratory at the Federal University of Ceará.",
                 hero_button: "Discover the versions",
                 products_title: "Our Monitoring Solutions",
                 products_subtitle: "Three versions to meet different needs, from the most compact to the most complete.",
-                nano_desc: "With integrated GPS, the MoQA Nano is the ultimate tool for mobile monitoring. Carry it in bags or vehicles and map your exposure to pollutants on any route, generating crucial data for health and safety.",
+                nano_desc: "The ultimate tool for mobile monitoring. Map pollutant exposure on any route and generate crucial data for health and safety.",
                 nano_f1: '<span>Particulate Matter Sensor (PM 2.5 & PM 10)</span>',
                 nano_f2: '<span>TVOCs Sensor</span>',
                 nano_f3: '<span>Temperature, Pressure, and Humidity</span>',
@@ -348,19 +349,17 @@
                 plus_f5: '<span>32Gb SD Card (up to 3 months of data)</span>',
                 plus_f6: '<span>Integrated UPS + 10,000mAh Battery</span>',
                 quote_button3: "Request a Quote",
+                quote_button4: "Request a Quote",
                 options_available: '<span>Options available</span>',
                 options_available2: '<span>Options available</span>',
                 options_available3: '<span>Options available</span>',
-                options_title: "Customize your MoQA",
-                options_subtitle: "Adapt the equipment with energy, connectivity, and data management options.",
-                options_energy_title: "Energy Options",
-                options_energy_f1: "<strong>UPS + 10,000mAh Battery:</strong> Ensure continuous operation even with power outages. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Available for Nano and Mini)</span>",
-                options_energy_f2: "<strong>Solar Panel:</strong> Complete energy autonomy for installations in remote locations. <span class='block text-sm text-gray-500 dark:text-gray-400'>(Available for all versions)</span>",
-                options_connectivity_title: "Advanced Connectivity",
-                options_connectivity_desc: "All models come with Wi-Fi 5 and Bluetooth 4.0. For specific needs, we offer:",
-                options_connectivity_f1: "<strong>LoRaWAN:</strong> Ideal for long distances and low power consumption.",
-                options_connectivity_f2: "<strong>4G/LTE:</strong> Cellular connectivity for high data availability anywhere.",
-                options_connectivity_note: "*Availability of LoRa and 4G modules may vary by region. Contact us.",
+                station_title: "Smart Weather Station",
+                station_subtitle: "Complete environmental data for a 360° analysis.",
+                station_desc: "Enhance your air quality analysis with accurate, real-time weather data. Our Smart Station can operate independently or integrated with your MoQA devices, providing a complete overview of environmental conditions.",
+                station_f1: "Wind Speed",
+                station_f2: "Wind Direction",
+                station_f3: "Rainfall",
+                station_f4: "Luminosity",
                 options_data_title: "Data and Management Platform",
                 options_data_cloud_title: "RepoAir Data Platform",
                 options_data_cloud_desc: "Focus on your data; we'll handle the rest. Our platform uses the best database, security, and scalability technologies to ensure 24/7 access, without you needing to manage any infrastructure. Request a download of your data anytime, at no extra cost.",
@@ -371,7 +370,7 @@
                 footer_links: "Quick Links",
                 footer_link_home: "Home",
                 footer_link_products: "Products",
-                footer_link_options: "Options",
+                footer_link_station: "Station",
                 footer_contact: "Contact",
                 footer_copy: "&copy; 2024 TRAMA Laboratory - UFC. All rights reserved."
             }
@@ -382,12 +381,10 @@
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    // Usamos innerHTML para renderizar as tags HTML dentro das traduções
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            // Atualiza botões ativos
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -395,24 +392,20 @@
             document.getElementById(`lang-${lang}-mobile`).classList.add('active');
         };
 
-        // Event Listeners para botões de idioma
         document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
         document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
         document.getElementById('lang-pt-mobile').addEventListener('click', () => setLanguage('pt'));
         document.getElementById('lang-en-mobile').addEventListener('click', () => setLanguage('en'));
 
-        // Define o idioma inicial
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage('pt');
         });
 
-        // Script para a animação de surgimento gradual
         const sections = document.querySelectorAll('.fade-in-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // observer.unobserve(entry.target);
                 }
             });
         }, {
@@ -426,3 +419,4 @@
 
 </body>
 </html>
+
